@@ -10,3 +10,6 @@
 - [ ] Перенести на React
 - [ ] Перенести на Angular
 - [ ] Перенести на Vue
+
+## Создание React проекта
+    npx create-react-app react-app --template typescript
