@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'scrollable-notes-list',
-  templateUrl: './scrollable-notes-list.component.html',
+  template: `
+    <div class="scrollable-notes-list">
+      <div *ngFor="let note of appService.notes; index as i">
+        <note-item 
+          [title]="note.title"
+          [active]="i === appService.currentIndex"
+          [id]="note.id"
+          ></note-item>
+      </div>
+    </div>
+  `,
   styleUrls: ['./scrollable-notes-list.component.css']
 })
-export class ScrollableNotesListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class ScrollableNotesListComponent {
+  constructor(public appService: AppService) {}
 }

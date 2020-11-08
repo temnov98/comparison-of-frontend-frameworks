@@ -6,6 +6,8 @@ import { AddNoteWrapperComponent } from './add-note-wrapper/add-note-wrapper.com
 import { NoteContentComponent } from './note-content/note-content.component';
 import { NoteItemComponent } from './note-item/note-item.component';
 import { ScrollableNotesListComponent } from './scrollable-notes-list/scrollable-notes-list.component';
+import { FormsModule } from '@angular/forms'; import { ReactiveFormsModule } from '@angular/forms';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,11 @@ import { ScrollableNotesListComponent } from './scrollable-notes-list/scrollable
     ScrollableNotesListComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

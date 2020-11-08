@@ -1,16 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'note-item',
-  templateUrl: './note-item.component.html',
+  template: `
+    <div class="note-item" [ngClass]="{'active-note-item': active}" (click)="setCurrent()">
+      {{ title }}
+    </div>
+  `,
   styleUrls: ['./note-item.component.css']
 })
-export class NoteItemComponent implements OnInit {
-  title = Date.now().toString();
+export class NoteItemComponent {
+  @Input() title: string;
+  @Input() id: string;
+  @Input() active: boolean;
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
-  ngOnInit(): void {
+  setCurrent(): void {
+    this.appService.changeCurrentIndex(this.id);
   }
-
 }

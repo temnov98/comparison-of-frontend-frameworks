@@ -1,15 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'add-note-wrapper',
-  templateUrl: './add-note-wrapper.component.html',
+  template: `
+    <div class="add-note-wrapper">
+      <div class="note-title-wrapper">
+        <input 
+          class="note-title-input" 
+          placeholder="Note title..."
+          [(ngModel)]="title"
+          />
+      </div>
+      <div 
+        class="add-note-button"
+        (click)="addNote()"
+        >
+        +
+      </div>
+    </div>
+  `,
   styleUrls: ['./add-note-wrapper.component.css']
 })
-export class AddNoteWrapperComponent implements OnInit {
+export class AddNoteWrapperComponent {
+  title: string = '';
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
-  ngOnInit(): void {
+  addNote() {
+    this.appService.addNote(this.title);
+    this.title = '';
   }
-
 }
