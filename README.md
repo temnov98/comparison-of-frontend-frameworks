@@ -16,4 +16,6 @@
 
 ## Создание Angular проекта
     npx @angular/cli new angular-app
-    
+
+## Создание Vue проекта 
+    npx @vue/cli create vue-app
