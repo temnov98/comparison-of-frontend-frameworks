@@ -13,3 +13,7 @@
 
 ## Создание React проекта
     npx create-react-app react-app --template typescript
+
+## Создание Angular проекта
+    npx @angular/cli new angular-app
+    
