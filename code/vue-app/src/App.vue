@@ -10,19 +10,27 @@
   </div>
 </template>
 
-<script>
-import NoteContent from './components/NoteContent';
-import AddNoteWrapper from './components/AddNoteWrapper';
-import ScrollableNotesList from './components/ScrollableNotesList';
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
+import NoteContent from './components/NoteContent.vue';
+import AddNoteWrapper from './components/AddNoteWrapper.vue';
+import ScrollableNotesList from './components/ScrollableNotesList.vue';
+import { INoteModel } from './models/note.model';
 
-export default {
-  name: 'App',
+@Options({
   components: {
     NoteContent,
     AddNoteWrapper,
     ScrollableNotesList,
   },
-};
+  data: () => {
+    return {
+      notes: [] as INoteModel[],
+      currentIndex: 4 as (number | undefined),
+    }
+  },
+})
+export default class App extends Vue {}
 </script>
 
 <style>

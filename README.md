@@ -19,3 +19,4 @@
 
 ## Создание Vue проекта 
     npx @vue/cli create vue-app
+    npx @vue/cli add typescript

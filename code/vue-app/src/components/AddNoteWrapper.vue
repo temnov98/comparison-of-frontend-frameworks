@@ -13,10 +13,11 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
 
-};
+@Options({})
+export default class AddNoteWrapper extends Vue {}
 </script>
 
 <style>

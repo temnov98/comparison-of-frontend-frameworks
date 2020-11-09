@@ -8,14 +8,16 @@
   </div>
 </template>
 
-<script>
-import NoteItem from './NoteItem';
+<script lang="ts">
+import NoteItem from './NoteItem.vue';
+import { Options, Vue } from "vue-class-component";
 
-export default {
+@Options({
   components: {
     NoteItem,
   },
-};
+})
+export default class ScrollableNotesList extends Vue {}
 </script>
 
 <style>

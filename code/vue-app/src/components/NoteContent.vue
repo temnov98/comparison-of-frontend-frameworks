@@ -8,8 +8,11 @@
   </div>
 </template>
 
-<script>
-export default {};
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+
+@Options({})
+export default class NoteContent extends Vue {}
 </script>
 
 <style>
