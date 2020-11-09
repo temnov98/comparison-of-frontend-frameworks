@@ -1,14 +1,26 @@
 <template>
-  <!-- <div class="note-item active-note-item" > -->
-  <div class="note-item" >
-    Title
+  <div
+      v-bind:class="{ 'note-item': true, 'active-note-item': isActive }"
+      @click="selectNote()"
+  >
+    {{ note.title }}
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { Options, Vue } from 'vue-class-component';
+import { GlobalState, IGlobalState } from '@/state/app.state';
 
-@Options({})
+@Options({
+  data: () => GlobalState,
+  props: ['note', 'isActive'],
+  methods: {
+    selectNote() {
+      (this as IGlobalState).currentIndex = (this as IGlobalState)
+          .notes.findIndex(note => note.id === this.note.id);
+    },
+  },
+})
 export default class NoteItem extends Vue {}
 </script>
 

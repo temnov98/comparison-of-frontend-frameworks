@@ -9,7 +9,7 @@
 - [X] Сверстать интерфейс на HTML и CSS
 - [X] Перенести на React
 - [X] Перенести на Angular
-- [ ] Перенести на Vue
+- [X] Перенести на Vue
 
 ## Создание React проекта
     npx create-react-app react-app --template typescript

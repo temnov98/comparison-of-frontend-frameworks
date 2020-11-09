@@ -4,10 +4,13 @@
       <input 
         className="note-title-input" 
         placeholder="Note title..."
+        v-model="title"
       />
     </div>
     <div 
-      className="add-note-button">
+      className="add-note-button"
+      @click="addNote()"
+      >
       +
     </div>
   </div>
@@ -15,8 +18,27 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { GlobalState, IGlobalState } from '@/state/app.state';
 
-@Options({})
+@Options({
+  data: () => ({
+    ...GlobalState,
+    title: '',
+  }),
+  methods: {
+    addNote() {
+      if (this.title) {
+        (this as IGlobalState).notes.push({
+          id: Date.now().toString(),
+          content: '',
+          title: this.title,
+        });
+      }
+
+      this.title = '';
+    },
+  },
+})
 export default class AddNoteWrapper extends Vue {}
 </script>
 

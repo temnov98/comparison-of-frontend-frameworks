@@ -2,7 +2,8 @@
   <div className="note-content-wrapper">
     <textarea 
       className="note-content" 
-      placeholder="Note content..." 
+      placeholder="Note content..."
+      v-model="currentNote"
       >
     </textarea>
   </div>
@@ -10,8 +11,11 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { GlobalState } from '@/state/app.state';
 
-@Options({})
+@Options({
+  data: () => GlobalState,
+})
 export default class NoteContent extends Vue {}
 </script>
 

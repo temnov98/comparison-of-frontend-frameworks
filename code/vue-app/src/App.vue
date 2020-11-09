@@ -16,6 +16,7 @@ import NoteContent from './components/NoteContent.vue';
 import AddNoteWrapper from './components/AddNoteWrapper.vue';
 import ScrollableNotesList from './components/ScrollableNotesList.vue';
 import { INoteModel } from './models/note.model';
+import { GlobalState } from './state/app.state';
 
 @Options({
   components: {
@@ -23,12 +24,7 @@ import { INoteModel } from './models/note.model';
     AddNoteWrapper,
     ScrollableNotesList,
   },
-  data: () => {
-    return {
-      notes: [] as INoteModel[],
-      currentIndex: 4 as (number | undefined),
-    }
-  },
+  data: () => GlobalState,
 })
 export default class App extends Vue {}
 </script>
