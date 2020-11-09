@@ -1,26 +1,53 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div className="content">
+      <div className="notes-list">
+        <AddNoteWrapper />
+        <ScrollableNotesList />
+      </div>
+      <NoteContent />
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NoteContent from './components/NoteContent';
+import AddNoteWrapper from './components/AddNoteWrapper';
+import ScrollableNotesList from './components/ScrollableNotesList';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    NoteContent,
+    AddNoteWrapper,
+    ScrollableNotesList,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 260px auto;
+  height: 100%;
+}
+
+.notes-list { 
+  background: #f4f4f4;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cfcfcf;
+  border-radius: 10px;
 }
 </style>
